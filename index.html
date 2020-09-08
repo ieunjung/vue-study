@@ -6,23 +6,23 @@
     <title>뷰 기초 익히기</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
+
   <body>
     <div id="app">
-      {{ year }} <br />
-      <button v-on:click="plus">더하기</button>
-      <button v-on:click="minus">빼기</button>
-
       <form v-on:submit.prevent="submit">
-        <input type="text" /><br />
+        <!-- <input type="text" :value="text" @keyup="updateText" /><br /> -->
+        <input type="text" v-model="text" /><br />
+        {{ text }} <br />
         <button type="submit">Submit</button>
       </form>
-      
     </div>
+
     <script>
       new Vue({
         el: "#app",
         data: {
-          year: 2018
+          year: 2018,
+          text: "text"
         },
         methods: {
           plus() {
@@ -32,9 +32,12 @@
             this.year--;
           },
           submit() {
-            alert("Submitted! ")
-            console.log('hello');
+            alert("Submitted! ");
+            console.log("hello");
           }
+          // updateText(event) {
+          //   this.text = event.target.value;
+          // }
         }
       });
     </script>
