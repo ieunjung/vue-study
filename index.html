@@ -8,38 +8,32 @@
   </head>
   <body>
     <div id="app">
-      {{ nextYear("안녕~") }}
-      <input :type="type" :value="inputData" />
-      <a :href="getLink('kossiecoder')">유튜브 채널</a>
+      {{ year }} <br />
+      <button v-on:click="plus">더하기</button>
+      <button v-on:click="minus">빼기</button>
+
+      <form v-on:submit.prevent="submit">
+        <input type="text" /><br />
+        <button type="submit">Submit</button>
+      </form>
+      
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
-          person: {
-            name: "아무개",
-            age: 34
-          },
-          inputData: "hi everyone",
-          type: "text",
-          link: "https://www.youtube.com/"
+          year: 2018
         },
         methods: {
-          getLink(channel) {
-            return this.link + channel;
+          plus() {
+            this.year++;
           },
-          nextYear(greeting) {
-            return (
-              greeting +
-              "! " +
-              this.person.name +
-              "는 내년에 " +
-              (this.person.age + 1) +
-              "살 입니다."
-            );
+          minus() {
+            this.year--;
           },
-          otherMethod: function () {
-            this.nextYear();
+          submit() {
+            alert("Submitted! ")
+            console.log('hello');
           }
         }
       });
