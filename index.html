@@ -9,24 +9,19 @@
 
   <body>
     <div id="app">
-      <button @click="changeMsg">Click</button>
-      <div>
-        {{ reverseMsg }}<br />
-        {{ reverseMsg }}<br />
-        {{ reverseMsg }}<br />
-      </div>
+      {{ message }} <br/>
+      <button @click="changeMsg">Click</button><br />
+      {{ updated }} <br/>
     </div>
 
     <script>
       new Vue({
         el: "#app",
         data: {
-          message: "HELLO"
+          message: "HELLO",
+          updated: '아니요'
         },
         methods: {
-          // reverseMsg() {
-          //   return this.message.split("").reverse().join("");
-          // },
           changeMsg() {
             this.message = "코지코더";
           }
@@ -34,6 +29,13 @@
         computed: {
           reverseMsg() {
             return this.message.split("").reverse().join("");
+          }
+        },
+        watch: {
+          // data.message 와 같은 이름을 쓴다.
+          message(newVal, oldVal) {
+            console.log(newVal, oldVal);
+            this.updated = '네';
           }
         }
       });
