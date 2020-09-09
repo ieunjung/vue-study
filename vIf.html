@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <template v-if="show">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </template>
+      <div v-if="show">Yes</div>
+      <div v-else="show">No</div>
+
+      <button @click="toggleYes">Toggle</button>
+      <br />
+      <br />
+
+      <div v-if="number === 1">one</div>
+      <div v-else-if="number === 2">two</div>
+      <div v-else>more than three</div>
+      {{ number }}
+      <button @click="addNum">Add</button>
+      <br />
+      <br />
+
+      <div v-show="show">Yes</div>
+      <button @click="toggleYes">Toggle Yes</button>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          show: true,
+          number: 1
+        },
+        methods: {
+          toggleYes() {
+            this.show = !this.show;
+          },
+          addNum() {
+            this.number++;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
