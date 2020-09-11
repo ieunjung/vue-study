@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      {{ name }} <br/>
+      <button @click="changeTxt">Click</button>
+    </div>
+    <div id="app2">
+      {{ name }} <br/>
+      <button @click="changeTxt">Click</button>
+    </div>
+
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          name: 'Kamil'
+        },
+        methods: {
+          changeTxt(){
+            app2.name = 'Kamil updated'
+          }
+        }
+      });
+
+      const app2 = new Vue({
+        el: "#app2",
+        data: {
+          name: 'Kamil2'
+        },
+        methods: {
+          changeTxt(){
+            app.name = 'Kamil updated'
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
