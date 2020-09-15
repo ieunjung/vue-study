@@ -21,7 +21,8 @@ watch: {
 ```
 
 ### template
-React의 Fragment 와 비슷한 기능을 한다. 
+
+### slot
 
 ### v-if, v-else, v-else-if
 조건부 렌더링
@@ -32,3 +33,10 @@ React의 Fragment 와 비슷한 기능을 한다.
 
 ### v-for
 배열의 엘리먼트와 객체의 속성을 나열할 수 있음.
+
+### v-model
+Create a two-way binding on a form input element or a component.
+
+### v-slot
+Shorthand: #  
+Denote named slots or slots that expect to receive props.
